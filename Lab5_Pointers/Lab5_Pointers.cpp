@@ -1,39 +1,38 @@
-// Lab5_Pointers.cpp : Defines the entry point for the console application.
-//
+// Author: Phillip Sin
+// Date: 10/ 31/ 15
+// Course: Computer Programming 2 (C++)
+// Lab5_Pointers
+// Teacher: Mr. Hansen
 
 #include "stdafx.h"
 #include <iostream>
 
 int size;
 
-void reverser(char myStr[])
+void reverser(char * pointer)
 {
 	int start = 0;
-	int end = size - 2;
-	int fin = end / 2;
-	std::cout << end << std::endl;
+	int end = strlen(pointer) - 1;
 	char startToEnd;
 	char endToStart;
 	
-	do
+	while(start < end)
 	{
-		startToEnd = myStr[start];
-		endToStart = myStr[end];
-		myStr[start] = endToStart;
-		myStr[endToStart] = startToEnd;
+		startToEnd = * (pointer + end) ;
+		endToStart = * (pointer + start);
+		* (pointer + end) = endToStart;
+		* (pointer + start) = startToEnd;
 		start++;
 		end--;
 
-	} while (start < 2);
+	}
 }
 
 int main()
 {
     // declare a char string to reverse
 
-	char myString[] = "Hello World!";
-	size = sizeof(myString) / sizeof(myString[1]);
-	std::cout << size;
+	char  myString[] = "Hello World!";
 
 	// call the reverser function
 	reverser(myString);
@@ -53,7 +52,7 @@ void reverser(char * pointer)
 	while (first_char = pointer < last_char)
 	{
 		--last_char;
-		char tem_char = *first-char;
+		char temp_char = *first-char;
 		*first_char = *last_char;
 		*last_char = temp_char;
 		++first_char;
