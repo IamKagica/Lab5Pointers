@@ -5,44 +5,15 @@
 // Teacher: Mr. Hansen
 
 #include "stdafx.h"
+#include "Driver.h"
 #include <iostream>
-
-int size;
-
-void reverser(char * pointer)
-{
-	int start = 0;
-	int end = strlen(pointer) - 1;
-	char startToEnd;
-	char endToStart;
-	
-	while(start < end)
-	{
-		startToEnd = * (pointer + end) ;
-		endToStart = * (pointer + start);
-		* (pointer + end) = endToStart;
-		* (pointer + start) = startToEnd;
-		start++;
-		end--;
-
-	}
-}
 
 int main()
 {
-    // declare a char string to reverse
-
-	char  myString[] = "Hello World!";
-
-	// call the reverser function
-	reverser(myString);
-
-	//output the result
-	std::cout << myString << std::endl;
-
-	std::system("PAUSE");
-	return 0;
+	Driver oneDriver;
+	oneDriver.main();
 }
+
 
 /*
 void reverser(char * pointer)
